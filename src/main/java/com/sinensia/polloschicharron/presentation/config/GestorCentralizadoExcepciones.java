@@ -63,5 +63,11 @@ public class GestorCentralizadoExcepciones extends ResponseEntityExceptionHandle
 		return ResponseEntity.internalServerError().body(httpErrorCustomizado);
 	}
 	
+	@ExceptionHandler(IllegalStateException.class)
+	public void handleIllegalStateException(IllegalStateException ex){
+	
+		throw new PresentationException(ex.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
 
 }

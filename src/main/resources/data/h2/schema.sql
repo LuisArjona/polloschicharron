@@ -1,3 +1,9 @@
+-- ******************************************************
+-- 
+--                    SECUENCIADORES
+-- 
+-- ******************************************************
+
 CREATE SEQUENCE "PERSONA_SEQ"
 	MINVALUE 1
 	MAXVALUE 999999999
@@ -29,6 +35,20 @@ CREATE SEQUENCE "FAMILIA_SEQ"
     START WITH 5000 
     NOCACHE 
     NOCYCLE;
+    
+ CREATE SEQUENCE "USERS_SEQ"
+ MINVALUE 1 
+ MAXVALUE 999999999 
+ INCREMENT BY 50 
+ START WITH 5000 
+ NOCACHE 
+ NOCYCLE;
+    
+-- ******************************************************
+-- 
+--                       MODEL 
+-- 
+-- ******************************************************
 
 CREATE TABLE FAMILIAS(
 	ID				BIGINT			NOT NULL,
@@ -116,4 +136,18 @@ CREATE TABLE LINEAS_PEDIDO(
 	PRECIO							DOUBLE			,
 	FOREIGN KEY (CODIGO_PEDIDO) REFERENCES PEDIDOS (CODIGO),
 	FOREIGN KEY (CODIGO_PRODUCTO) REFERENCES PRODUCTOS (CODIGO)
+);
+
+-- ******************************************************
+-- 
+--                  SPRING SECURITY 
+-- 
+-- ******************************************************
+
+CREATE TABLE USERS (
+    ID 								BIGINT		        NOT NULL,
+    USERNAME 						VARCHAR(50) 		NOT NULL UNIQUE,
+    PASSWORD 						VARCHAR(100) 		NOT NULL,
+    EMAIL 							VARCHAR(150) 		,
+    PRIMARY KEY (ID)
 );

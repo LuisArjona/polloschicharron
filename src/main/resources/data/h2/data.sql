@@ -1,3 +1,9 @@
+-- ******************************************************
+-- 
+--                       MODEL 
+-- 
+-- ******************************************************
+
 INSERT INTO FAMILIAS (ID, NOMBRE) VALUES
 (1, 'LICOR'),
 (2, 'REFRESCO'),
@@ -202,3 +208,31 @@ INSERT INTO LINEAS_PEDIDO (CODIGO_PEDIDO, ORDEN, CODIGO_PRODUCTO, CANTIDAD, PREC
 (1014, 2, 166, 1, 2.7),
 (1014, 3, 156, 3, 1.5),
 (1014, 4, 102, 2, 2.5);
+
+-- ******************************************************
+-- 
+--                  SPRING SECURITY 
+-- 
+-- ******************************************************
+
+
+/*
+  	role						        username	password        enabled
+ 	========================================================================================================
+ 	SUPER_ADMIN, ADMIN, CLIENTE	    	u1		    password
+ 	SUPER_ADMIN, ADMIN	    	        u2		    password
+ 	SUPER_ADMIN			                u3		    password
+ 	ADMIN			                    u4		    password
+ 	CLIENTE                        		u5   	    password
+ 	CLIENTE		                        u6		    password		(this user is disabled)
+ */
+
+INSERT INTO USERS (ID, USERNAME, PASSWORD, EMAIL) VALUES
+(1, 'u1', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'u1@gmail.com'),
+(2, 'u2', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'pingo@pingo.com'),
+(3, 'u3', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'pingo@pingo.com'),
+(4, 'u4', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'disabled@user.com'),
+(5, 'u5', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'marta@admin.com'),
+(6, 'u6', '$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC', 'admin@admin.com');
+
+
